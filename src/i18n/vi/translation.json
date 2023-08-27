@@ -1,0 +1,23 @@
+{
+	"name": "đỗ văn hải",
+	"page": {
+		"name": "đỗ văn hải",
+		"relatedPost": "Bài viết liên quan"
+	},
+	"aboutMeView": {
+		"companyName": "CÔNG TY TNHH VIỆT COM"
+	},
+	"contactMeView": {
+		"test": "đỗ văn hải",
+		"sendContact": "Gửi liên hệ"
+	},
+	"menu": {
+		"home": "Trang chủ",
+		"about": "Giới thiệu",
+		"product": "Sản phẩm",
+		"project": "Dự án",
+		"news": "Tin tức",
+		"recruitment": "Tuyển dụng",
+		"contact": "Liên hệ"
+	}
+}

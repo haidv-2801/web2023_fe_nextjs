@@ -1,0 +1,23 @@
+{
+	"name": "Do Van Hai",
+	"page": {
+		"name": "Do Van Hai",
+		"relatedPost": "Related posts"
+	},
+	"aboutMeView": {
+		"companyName": "VIETCOM CO., LTD"
+	},
+	"contactMeView": {
+		"test": "Do Van Hai",
+		"sendContact": "Send contact"
+	},
+	"menu": {
+		"home": "Home",
+		"about": "About",
+		"product": "Product",
+		"project": "Project",
+		"news": "News",
+		"recruitment": "Recruitment",
+		"contact": "Contact"
+	}
+}
