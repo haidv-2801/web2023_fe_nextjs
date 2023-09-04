@@ -3,9 +3,8 @@ import HtmlContentView from '@/src/components/features/htmlContent/HtmlContentVi
 import Main from '@/src/layouts/main/Main';
 import { notFound } from 'next/navigation';
 import { useTranslation } from '../../../../i18n/server';
-import { fetchArticle } from './service';
-import Loading from '@/src/app/loading';
 import './content.css';
+import { fetchArticle } from './service';
 
 type Props = {
 	params: {

@@ -1,15 +1,13 @@
 'use client';
+import { GetImageUrl } from '@/src/utils/helpers';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import React, { HTMLAttributes, InputHTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
-import { Pagination } from 'swiper';
+import { twMerge } from 'tailwind-merge';
 import styles from './swipperSlider.module.scss';
-import Image from 'next/image';
-import Logo from '/public/assets/images/logo-vietcom.png';
-import { GetImageUrl } from '@/src/utils/helpers';
+// import Image from 'next/image';
+import Image from '@/src/components/base/Image/Image';
 
 SwiperCore.use([Autoplay]);
 
@@ -36,10 +34,10 @@ const SwipperSlider = ({ className, imgWrapperClass, breakpoints, data, ...props
 		>
 			{data.map((f: any) => (
 				<SwiperSlide key={f?.url}>
-					<div className={twMerge(imgWrapperClass)}>
+					<div className={twMerge(imgWrapperClass, 'relative')}>
 						<Image
-							src={f?.isFullUrl ? f?.url : GetImageUrl(f?.url)}
-							alt={f?.name}
+							src={GetImageUrl(f?.url)}
+							alt={f?.name ?? ''}
 							className="min-h-full object-cover"
 							fill
 						></Image>

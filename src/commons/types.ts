@@ -358,3 +358,11 @@ export interface BuHomeBlockSingleButton {
 	bg_color: string;
 }
 //#endregion
+
+//#region heade
+export interface Header {
+	phone: string;
+	email: string;
+	work_time: string;
+}
+//#endregion

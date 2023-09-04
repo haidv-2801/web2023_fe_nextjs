@@ -1,9 +1,8 @@
-import 'server-only';
 import { REVALIDATE } from '@/src/app/server-constant';
-import { cache } from 'react';
-import { fetcher } from '@/src/lib/api';
 import { Article, LocaleCode } from '@/src/commons/types';
-import { stringify } from 'querystring';
+import { fetcher } from '@/src/lib/api';
+import { cache } from 'react';
+import 'server-only';
 
 export const fetchProjects = cache(async (locale: LocaleCode): Promise<Article[]> => {
 	const res = await fetcher(`/aritcle/category/du-an?locale=${locale}`, {

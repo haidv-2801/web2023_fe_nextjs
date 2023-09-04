@@ -8,12 +8,10 @@ import IconInbox from '@/src/components/icons/IconInbox';
 import IconInternet from '@/src/components/icons/IconInternet';
 import IconPhone from '@/src/components/icons/IconPhone';
 import { useTranslation } from '@/src/i18n/client';
-import React, { useState } from 'react';
+import { getFullUrlClient, getHeadersClient } from '@/src/lib/api';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
-import { useForm, FormProvider } from 'react-hook-form';
-import axios from 'axios';
-import axiosClient from '@/src/lib/axiosClient';
-import { getFullUrl, getFullUrlClient, getHeaders } from '@/src/lib/api';
 
 type Props = {
 	params: {
@@ -46,10 +44,7 @@ const ContactMeView = (props: Props) => {
 			},
 		};
 
-		const headers = {
-				'Content-Type': 'application/json',
-				Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_API_TOKEN_READ_ONLY,
-			},
+		const headers = getHeadersClient(),
 			url = getFullUrlClient('/messages');
 
 		await fetch(url, {

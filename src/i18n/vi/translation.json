@@ -2,7 +2,11 @@
 	"name": "đỗ văn hải",
 	"page": {
 		"name": "đỗ văn hải",
-		"relatedPost": "Bài viết liên quan"
+		"relatedPost": "Bài viết liên quan",
+		"lastestNews": "Tin mới nhất",
+		"trustlyPartner": "Đối tác tin cậy",
+		"customer": "Khách hàng",
+		"seeMore": "Xem thêm"
 	},
 	"aboutMeView": {
 		"companyName": "CÔNG TY TNHH VIỆT COM"

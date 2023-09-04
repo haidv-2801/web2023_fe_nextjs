@@ -3,8 +3,12 @@ import { Article } from '@/src/commons/types';
 import { GetImageUrl } from '@/src/utils/helpers';
 import CustomLink from '../../base/CustomLink/CustomLink';
 import Image from '../../base/Image/Image';
+import { useTranslation } from '@/src/i18n/client';
+import { useLocale } from '@/src/providers/LocaleProvider';
 
 const ListView = ({ data }: { data: Article[] }) => {
+	const { locale } = useLocale();
+	const { t } = useTranslation(locale);
 	return (
 		<ul
 			role="list"
@@ -38,7 +42,7 @@ const ListView = ({ data }: { data: Article[] }) => {
 								href={p.slug}
 								className="inline-flex items-center  px-3 py-2 text-center text-sm font-medium  hover:text-title-red focus:ring-4 focus:ring-blue-300"
 							>
-								Xem thêm --{'>'}
+								{t('page.seeMore')} --{'>'}
 							</CustomLink>
 						</div>
 					</div>

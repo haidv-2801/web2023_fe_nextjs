@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-function getWindowDimensions() {
+export function getWindowDimensions() {
 	const { innerWidth: width, innerHeight: height } = window || {};
 	return {
 		width,
@@ -13,6 +13,8 @@ export default function useWindowDimensions() {
 	const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
 
 	useEffect(() => {
+		setWindowDimensions(getWindowDimensions());
+
 		function handleResize() {
 			setWindowDimensions(getWindowDimensions());
 		}

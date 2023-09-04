@@ -3,6 +3,9 @@ import { cache, useEffect, useState } from 'react';
 import LogoVietcom from '/public/assets/images/logo-vietcom.png';
 import Image from 'next/image';
 import { getFullUrl, getFullUrlClient, getHeaders } from '@/src/lib/api';
+import { LocaleCode } from '@/src/commons/types';
+import { useLocale } from '@/src/providers/LocaleProvider';
+import { REVALIDATE } from '@/src/app/server-constant';
 
 const navigation = {
 	solutions: [
@@ -95,22 +98,23 @@ const navigation = {
 };
 
 export default function Footer() {
+	const { locale } = useLocale();
 	const [footer, setFooter] = useState<any>();
 
 	useEffect(() => {
 		(async () => {
-			const data = await getFooter();
+			const data = await getFooter(locale as LocaleCode);
 			setFooter(data);
 		})();
 	}, []);
 
-	const getFooter = cache(async () => {
+	const getFooter = cache(async (locale: LocaleCode) => {
 		const headers = {
-				'Content-Type': 'application/json',
+				...getHeaders(),
 				Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_API_TOKEN_READ_ONLY,
 			},
-			url = getFullUrlClient('/footer?populate=deep,3');
-		const res = await fetch(url, { headers });
+			url = getFullUrlClient(`/footer?populate=deep,3&locale=${locale}`);
+		const res = await fetch(url, { headers, next: { revalidate: REVALIDATE } });
 		return await res.json();
 	});
 
@@ -122,8 +126,8 @@ export default function Footer() {
 						<h3 className="text-sm font-semibold leading-6 text-white">{f?.section_title}</h3>
 						<ul role="list" className="mt-6 space-y-1">
 							{f?.title_content?.map((item: any) => (
-								<li key={item.id} className="flex gap-1">
-									<div className="min-w-[50px]">{item.title}</div>
+								<li key={item.id} className="flex flex-col gap-1 md:flex-row">
+									<div className="min-w-[50px] flex-shrink-0 text-title-red">{item.title}</div>
 									<a href={item.link} className="text-sm leading-6 text-white hover:text-white">
 										{item.content}
 									</a>
@@ -155,7 +159,7 @@ export default function Footer() {
 						</p>
 						<div className="flex space-x-6">
 							{navigation.social.map((item) => (
-								<a key={item.name} href={item.href} className="text-gray-400 hover:text-white">
+								<a key={item.name} href={item.href} className="hover:text-white">
 									<span className="sr-only">{item.name}</span>
 									<item.icon className="h-6 w-6" aria-hidden="true" />
 								</a>

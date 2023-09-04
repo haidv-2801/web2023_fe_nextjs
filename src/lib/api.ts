@@ -8,6 +8,14 @@ export const getHeaders = () => {
 	return headers;
 };
 
+export const getHeadersClient = () => {
+	const headers = {
+		'Content-Type': 'application/json',
+		Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_API_TOKEN_READ_ONLY,
+	};
+	return headers;
+};
+
 export const getFullUrl = (path: string) => {
 	return `${process.env.NEXT_PUBLIC_URL}/api${path}`;
 };
@@ -28,7 +36,7 @@ export const fetcher = async (path: string, option: any = null): Promise<Service
 
 		const data = await response.json();
 		const error = Boolean(data.error);
-
+		console.log('2323 :>> ', JSON.stringify(url));
 		return {
 			IsSuccess: !error,
 			Data: data,

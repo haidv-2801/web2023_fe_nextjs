@@ -2,7 +2,11 @@
 	"name": "Do Van Hai",
 	"page": {
 		"name": "Do Van Hai",
-		"relatedPost": "Related posts"
+		"relatedPost": "Related posts",
+		"lastestNews": "Lastest News",
+		"trustlyPartner": "Trusted partners",
+		"customer": "Customers",
+		"seeMore": "See more"
 	},
 	"aboutMeView": {
 		"companyName": "VIETCOM CO., LTD"

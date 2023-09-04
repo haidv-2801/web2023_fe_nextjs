@@ -57,3 +57,7 @@ export const COMPONENT_BLOCK = {
 	PARTNER_CUSTOMER: 'home-block.partner-customer',
 	ARTICLES: 'home-block.articles',
 };
+
+export const FALL_BACK = {
+	TYPE1: '---',
+};

@@ -1,11 +1,10 @@
 import { REVALIDATE } from '@/src/app/server-constant';
+import { COMPONENT_BLOCK } from '@/src/commons/constants';
 import { fetcher, getFullUrl, getHeaders } from '@/src/lib/api';
 import { cache } from 'react';
-import { COMPONENT_BLOCK } from '@/src/commons/constants';
-import { LogDebug } from '@/src/utils/file';
 
 export const fetchMenus = cache(async (locale: string) => {
-	const response = await fetcher('/menus?populate=*', {
+	const response = await fetcher(`/menus?populate=*&locale=${locale}`, {
 		next: { revalidate: REVALIDATE },
 	});
 
@@ -17,7 +16,7 @@ export const fetchMenus = cache(async (locale: string) => {
 });
 
 export const fetchHome = cache(async (locale: string) => {
-	const response = await fetcher('/home-page?populate=deep,4', {
+	const response = await fetcher(`/home-page?populate=deep,4&locale=${locale}`, {
 		next: { revalidate: REVALIDATE },
 	});
 
@@ -96,7 +95,6 @@ export const fetchBanner = cache(async (locale: string, path: string) => {
 		method: 'POST',
 	});
 	const data = await response.json();
-
 	if (data?.data && Array.isArray(data?.data)) return data?.data[0];
 	return null;
 });
