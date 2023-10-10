@@ -9,6 +9,7 @@ import Main from '@/src/layouts/main/Main';
 import { t } from 'i18next';
 import { useTranslation } from '@/src/i18n/server';
 import Loading from '../loading';
+import QuickContact from '@/src/components/features/quickContact/QuickContact';
 
 const Layout = async ({
 	children,
@@ -22,6 +23,7 @@ const Layout = async ({
 	const menusTransformed: SubMenuItem[] = transformDataMenu(menus);
 
 	function transformDataMenu(menus: any) {
+		if (!menus || !menus.data || !menus.data.length) return [];
 		return menus.data.map((m: any) => {
 			const { attributes, id } = m;
 			const { items, ...rest } = attributes;
@@ -46,6 +48,7 @@ const Layout = async ({
 				<Header locale={locale as LocaleCode} pages={menusTransformed} />
 				{/* <Suspense fallback={<Loading />}>{children}</Suspense> */}
 				{children}
+				<QuickContact />
 				<Footer />
 			</AppProvider>
 		</section>

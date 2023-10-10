@@ -121,7 +121,7 @@ export default function Footer() {
 	const renderFooter = () => {
 		return footer?.data?.attributes?.section?.map((f: any) => {
 			return (
-				<div key={f.id} className="flex min-w-[200px] gap-8">
+				<div key={f.id} className="flex min-w-[200px] gap-8 text-sm">
 					<div className="">
 						<h3 className="text-sm font-semibold leading-6 text-white">{f?.section_title}</h3>
 						<ul role="list" className="mt-6 space-y-1">
@@ -154,9 +154,7 @@ export default function Footer() {
 							priority
 							alt="Công ty Việt Com"
 						/>
-						<p className="text-sm leading-6 text-white">
-							Making the world a better place through constructing elegant hierarchies.
-						</p>
+						<p className="text-sm leading-6 text-white">---</p>
 						<div className="flex space-x-6">
 							{navigation.social.map((item) => (
 								<a key={item.name} href={item.href} className="hover:text-white">
@@ -169,8 +167,8 @@ export default function Footer() {
 					{renderFooter()}
 				</div>
 				<div className="mx-auto mt-16 max-w-7xl border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-					<p className="text-xs leading-5 text-white">
-						&copy; 2020 Your Company, Inc. All rights reserved.
+					<p className="text-ssm leading-5 text-white">
+						&copy; 2022 Viet Com Co., Ltd. All rights reserved.
 					</p>
 				</div>
 			</div>

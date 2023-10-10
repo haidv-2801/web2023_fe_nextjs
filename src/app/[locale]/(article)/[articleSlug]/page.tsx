@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import { useTranslation } from '../../../../i18n/server';
 import './content.css';
 import { fetchArticle } from './service';
+import { GetImageUrl } from '@/src/utils/helpers';
+import format from 'react-string-format';
 
 type Props = {
 	params: {
@@ -35,4 +37,31 @@ export default async function ClientPage({ params: { articleSlug, locale } }: Pr
 			</div>
 		</Main>
 	);
+}
+
+// @ts-ignore
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { articleSlug, locale } = params;
+	const [{ data: article, meta }] = await Promise.all([fetchArticle(articleSlug ?? '', locale)]);
+
+	return {
+		title: article?.title,
+		description: article?.description || '',
+		keywords: ['VietcomLtd', article?.title || ''],
+		openGraph: {
+			title: article?.title,
+			description: article?.description || '',
+			url: process.env.NEXT_PUBLIC_URL + '/' + articleSlug,
+			siteName: article?.title,
+			images: [
+				{
+					url: GetImageUrl(article?.seo?.metaImage?.data?.attributes?.url),
+					width: 800,
+					height: 600,
+				},
+			],
+			locale: 'vi_vn',
+			type: 'website',
+		},
+	};
 }

@@ -36,7 +36,7 @@ export const fetcher = async (path: string, option: any = null): Promise<Service
 
 		const data = await response.json();
 		const error = Boolean(data.error);
-		console.log('2323 :>> ', JSON.stringify(url));
+
 		return {
 			IsSuccess: !error,
 			Data: data,

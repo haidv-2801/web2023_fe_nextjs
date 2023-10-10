@@ -12,6 +12,14 @@ type Props = {
 	};
 };
 
+export async function generateMetadata({ params }: Props) {
+	const { locale } = params;
+
+	return {
+		title: locale == 'vi' ? 'Tuyển dụng' : 'Rescruitment',
+	};
+}
+
 export default async function ClientPage({ params: { locale } }: Props) {
 	const [recruitments, banner] = await Promise.all([
 		fetchRecruitments(locale as LocaleCode),

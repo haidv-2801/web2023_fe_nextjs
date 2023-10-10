@@ -16,8 +16,10 @@ export const ClassNames = (...classes: string[]): string => {
 	return classes.filter(Boolean).join(' ');
 };
 
-export const FormatSeoTitle = (title?: any) => {
-	return `${title || ''}` + '| VietcomLtd -  Giải Pháp Y Tế';
+export const FormatSeoTitle = (title?: any, locale?: LocaleCode) => {
+	return `${title || ''}` + '| VietcomLtd - ' + locale == 'vi'
+		? 'Giải Pháp Y Tế'
+		: 'Medical Solutions';
 };
 
 export const GetImageUrl = (path: string): string => {

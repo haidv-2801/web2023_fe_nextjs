@@ -9,11 +9,28 @@
 		"seeMore": "Xem thêm"
 	},
 	"aboutMeView": {
-		"companyName": "CÔNG TY TNHH VIỆT COM"
+		"companyName": "CÔNG TY TNHH VIỆT COM",
+		"history": "LỊCH SỬ HÌNH THÀNH",
+		"historyDesc1": "Công ty TNHH Việt Com được thành lập từ năm 2003 tại Hà Nội, với gần 20 năm kinh nghiệm trong lĩnh vực cơ điện bệnh viện Chúng tôi có nhiều năm kinh nghiệm trong thi công, cung cấp các dịch vụ tại các bệnh viện lớn như Bệnh viện Bạch Mai, Bệnh viện Bệnh Nhiệt đới Trung Ương, Bệnh viện Thanh Nhàn, Bệnh viện Xanh Pôn,.... và các bệnh viện tỉnh thành khác. Chúng tôi tự hào khi là đơn vị đầu tiên lĩnh vực Hệ thống khí y tế và Hệ thống Phòng mổ với tường kính màu.",
+		"vision": "TẦM NHÌN",
+		"visionDesc1": "Với chiến lược phát triển bền vững, Công ty TNHH Việt Com là đơn vị chuyên nghiệp trong lĩnh vực cơ điện bệnh viện.",
+		"mission": "SỨ MỆNH",
+		"missionDesc1": "Công ty TNHH Việt Com cung cấp các giải pháp, sản phẩm hoàn hảo cho tất cả các bệnh viện tại Việt Nam và thế giới.",
+		"value": "GIÁ TRỊ CỐT LÕI",
+		"valueDesc1": "Sáng tạo - Trách nhiệm - Quan tâm - Liên tục - Kết nối - Cá nhân."
 	},
 	"contactMeView": {
 		"test": "đỗ văn hải",
-		"sendContact": "Gửi liên hệ"
+		"sendContact": "Gửi liên hệ",
+		"firstName": "Họ",
+		"lastName": "Tên",
+		"phone": "Điện thoại",
+		"note": "Ghi chú"
+	},
+	"home": {
+		"submitReceived": "Đăng Ký Thông Tin Tư Vấn",
+		"text1": "Để lại thông tin, chúng tôi sẽ liên hệ lại ngay",
+		"sent": "Gửi đi"
 	},
 	"menu": {
 		"home": "Trang chủ",

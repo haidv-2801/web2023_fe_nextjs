@@ -7,6 +7,14 @@ type Props = {
 	};
 };
 
+export async function generateMetadata({ params }: Props) {
+	const { locale } = params;
+
+	return {
+		title: locale == 'vi' ? 'Giới thiệu' : 'About',
+	};
+}
+
 export default async function ClientPage({ params: { locale } }: Props) {
 	return (
 		<Main>

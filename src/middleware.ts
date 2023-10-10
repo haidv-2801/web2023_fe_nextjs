@@ -29,6 +29,7 @@ export async function middleware(req: NextRequest) {
 	let lng;
 	let pathLocale = getPathLocale(pathname);
 	let search = searchParams.get('s');
+	let type = searchParams.get('type');
 
 	if (pathLocale) lng = pathLocale;
 	if (!lng && req.cookies.has(cookieName)) lng = req.cookies.get(cookieName)?.value;
@@ -44,6 +45,15 @@ export async function middleware(req: NextRequest) {
 	}
 
 	if (!pathLocale) {
+		if (type && type == 'list') {
+			console.log(
+				'object :>> ',
+				reFormatPath(`/${lng}/list/${pathname}/${search ? '?s=' + search : ''}`)
+			);
+			return NextResponse.rewrite(
+				new URL(reFormatPath(`/${lng}/list/${pathname}/${search ? '?s=' + search : ''}`), req.url)
+			);
+		}
 		return NextResponse.rewrite(
 			new URL(reFormatPath(`/${lng}${pathname}${search ? '?s=' + search : ''}`), req.url)
 		);

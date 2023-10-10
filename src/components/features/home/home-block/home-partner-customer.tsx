@@ -29,9 +29,10 @@ export default function HomePartnerCustomer({ data, locale }: { locale: LocaleCo
 	};
 
 	return (
-		<section className="partnerAndCustomer mx-auto my-10 flex w-full flex-col justify-center gap-6 md:flex-row">
-			<section className="flex w-full flex-col self-center px-4 md:w-[45%] md:px-0">
-				<div className="title mb-4 text-center text-[1.5rem] font-bold text-title-red md:text-[1.75rem]">
+		<section className="partnerAndCustomer relative mx-auto flex w-full flex-col justify-center gap-6 py-[110px] shadow-base1 md:flex-row">
+			<div className="partnerAndCustomerOverlay absolute z-10 h-full"></div>
+			<section className="partnerAndCustomerPartner flex w-full flex-col self-center px-4 md:w-[45%] md:px-0">
+				<div className="title mb-6 text-center text-[1.5rem] font-bold text-title-red md:text-[1.75rem]">
 					{t('page.trustlyPartner').toUpperCase()}
 				</div>
 				<div className="">
@@ -44,7 +45,7 @@ export default function HomePartnerCustomer({ data, locale }: { locale: LocaleCo
 			</section>
 			<div className="w-[1px] shrink-0 bg-[#e5e5e5]"></div>
 			<section className="flex w-full flex-col self-center px-4 md:w-[45%] md:px-0">
-				<div className="title mb-4 text-center text-[1.5rem] font-bold text-title-red md:text-[1.75rem]">
+				<div className="title mb-6 text-center text-[1.5rem] font-bold text-title-red md:text-[1.75rem]">
 					{t('page.customer').toUpperCase()}
 				</div>
 				<div className="">

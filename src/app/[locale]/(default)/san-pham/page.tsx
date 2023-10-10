@@ -12,6 +12,14 @@ type Props = {
 	};
 };
 
+export async function generateMetadata({ params }: Props) {
+	const { locale } = params;
+
+	return {
+		title: locale == 'vi' ? 'Sản phẩm' : 'Products',
+	};
+}
+
 export default async function ClientPage({ params: { locale } }: Props) {
 	const [products, banner] = await Promise.all([
 		fetchProducts(locale as LocaleCode),

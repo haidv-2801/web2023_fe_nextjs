@@ -13,7 +13,7 @@ export const fetchProducts = cache(async (locale: LocaleCode): Promise<Article[]
 	const data = res.Data.data.map((f: any) => ({
 		id: f.id,
 		...f.attributes,
-		image: f.attributes?.image?.data?.attributes?.formats?.medium,
+		image: f.attributes?.image?.data?.attributes,
 	}));
 
 	await LogDebug(data);

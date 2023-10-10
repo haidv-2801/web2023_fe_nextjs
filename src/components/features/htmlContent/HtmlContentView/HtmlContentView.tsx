@@ -10,7 +10,7 @@ import IconEye from '@/src/components/icons/IconEye';
 
 const HtmlContentView = ({ article }: { article: Article }) => {
 	const domContentMemo = useMemo(() => {
-		if (!article.content) return <div className="text-[1.5rem] text-main">No content!</div>;
+		article.content = article.content.replace('text-align:center;', 'text-align: -webkit-center;');
 		const $ = load(article.content ?? '');
 		$('img').each(function () {
 			if (!this || !$(this)) return;
@@ -35,7 +35,11 @@ const HtmlContentView = ({ article }: { article: Article }) => {
 					</div>
 				</div>
 				<div className="mb-6 h-[1px] w-full bg-main-border"></div>
-				<div id="block-html" dangerouslySetInnerHTML={{ __html: content }} />
+				{!article.content ? (
+					<div className="text-[1.5rem] text-main"></div>
+				) : (
+					<div id="block-html ck-content" dangerouslySetInnerHTML={{ __html: content }} />
+				)}
 				<div style={{ clear: 'both' }}></div>
 			</>
 		);

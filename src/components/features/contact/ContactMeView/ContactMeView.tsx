@@ -7,6 +7,7 @@ import TextArea from '@/src/components/base/TextArea/TextArea';
 import IconInbox from '@/src/components/icons/IconInbox';
 import IconInternet from '@/src/components/icons/IconInternet';
 import IconPhone from '@/src/components/icons/IconPhone';
+import { useSubmitMessage } from '@/src/hooks/useSubmitMessage';
 import { useTranslation } from '@/src/i18n/client';
 import { getFullUrlClient, getHeadersClient } from '@/src/lib/api';
 import { useState } from 'react';
@@ -34,25 +35,19 @@ const ContactMeView = (props: Props) => {
 		reset,
 	} = methods;
 
+	const { onSubmit: handleSubmitForm } = useSubmitMessage();
+
 	const onSubmit = async (data: any) => {
-		const body = {
-			data: {
-				name: `${data.firstName} ${data.lastName}`,
-				email: data.email,
-				phone_number: data.phoneNumber,
-				message: message,
-			},
-		};
-
-		const headers = getHeadersClient(),
-			url = getFullUrlClient('/messages');
-
-		await fetch(url, {
-			method: 'POST',
-			headers,
-			body: JSON.stringify(body),
+		handleSubmitForm({
+			name: `${data.firstName} ${data.lastName}`,
+			email: data.email,
+			phone_number: data.phoneNumber,
+			message: message,
 		});
+		afterSubmit();
+	};
 
+	const afterSubmit = () => {
 		alert('Gửi thông tin tư vấn thành công!!!');
 		reset();
 		setMessage('');
@@ -65,7 +60,7 @@ const ContactMeView = (props: Props) => {
 	return (
 		<section className="flex flex-col">
 			<div className="mx-auto mb-6 flex flex-col items-center">
-				<h1 className="my-4 text-[2rem] font-bold text-title-red">{contactMe.title}</h1>
+				<h1 className="my-4 text-3xl font-bold text-title-red">{contactMe.title}</h1>
 				<p className="mx-auto mb-6 max-w-2xl text-center text-[#454545]">{contactMe.content}</p>
 			</div>
 			<div className="mb-8 flex gap-6">
@@ -73,8 +68,8 @@ const ContactMeView = (props: Props) => {
 					<FormProvider {...methods}>
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<div className="mb-4 flex w-full flex-col gap-4 md:flex-row">
-								<span className="w-full">
-									<label>Họ</label>
+								<span className="flex w-full flex-col gap-1">
+									<label className="mb-1">{t('contactMeView.firstName')}</label>
 									<Input
 										placeholder="Họ"
 										className={twMerge('w-full flex-1 focus:placeholder:text-[#bbbbbb]', inputBlur)}
@@ -83,8 +78,8 @@ const ContactMeView = (props: Props) => {
 										validate={{ required: false, maxLength: 255, minLength: 0 }}
 									/>
 								</span>
-								<span className="w-full">
-									<label>Tên</label>
+								<span className="flex w-full  flex-col gap-1">
+									<label>{t('contactMeView.lastName')}</label>
 									<Input
 										placeholder="Tên"
 										className={twMerge('flex-1 focus:placeholder:text-[#bbbbbb]', inputBlur)}
@@ -95,7 +90,7 @@ const ContactMeView = (props: Props) => {
 								</span>
 							</div>
 							<div className="mb-4 flex w-full flex-col gap-4 md:flex-row">
-								<span className="w-full">
+								<span className="flex w-full flex-col gap-1">
 									<label>
 										Email <span className="text-title-red">*</span>
 									</label>
@@ -112,9 +107,9 @@ const ContactMeView = (props: Props) => {
 										}}
 									/>
 								</span>
-								<span className="w-full">
+								<span className="flex w-full flex-col gap-1">
 									<label>
-										Điện thoại <span className="text-title-red">*</span>
+										{t('contactMeView.phone')} <span className="text-title-red">*</span>
 									</label>
 									<Input
 										type="tel"
@@ -131,8 +126,8 @@ const ContactMeView = (props: Props) => {
 								</span>
 							</div>
 							<div className="flex w-full flex-row">
-								<span className="w-full">
-									<label>Ghi chú</label>
+								<span className="flex w-full flex-col gap-1">
+									<label>{t('contactMeView.note')}</label>
 									<TextArea
 										className={twMerge('min-h-[120px] focus:placeholder:text-[#bbbbbb]', inputBlur)}
 										rows={4}

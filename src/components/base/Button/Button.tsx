@@ -7,7 +7,7 @@ const Button = ({ className, children, disabled, ...props }: ButtonProps) => {
 	return (
 		<button
 			className={twMerge(
-				'bt h-auto w-auto rounded-[6px] px-[17px] py-[9px] text-base',
+				'bt h-auto w-auto cursor-pointer rounded-[6px] px-[17px] py-[9px] text-sm',
 				className,
 				disabled && 'pointer-events-none bg-main-border'
 			)}

@@ -9,11 +9,28 @@
 		"seeMore": "See more"
 	},
 	"aboutMeView": {
-		"companyName": "VIETCOM CO., LTD"
+		"companyName": "VIET COM CO., LTD",
+		"history": "FORMATION HISTORY",
+		"historyDesc1": "Viet Com Co., Ltd was established in 2003 in Hanoi, with nearly 20 years of experience in the field of hospital mechanical and electrical systems. We have many years of experience in construction and providing services at major hospitals such as Bach Mai Hospital, Central Tropical Hospital, Thanh Nhan Hospital, Xanh Pon Hospital, and other provincial hospitals. We take pride in being the first company in the field of Medical Gas System and Operating Room System with colored glass.",
+		"vision": "VISION",
+		"visionDesc1": "With a sustainable development strategy, Viet Com Co., Ltd is a professional unit in the field of hospital mechanical and electrical systems.",
+		"mission": "MISSION",
+		"missionDesc1": "Viet Com Co., Ltd provides perfect solutions and products for all hospitals in Vietnam and around the world.",
+		"value": "CORE VALUES",
+		"valueDesc1": "Creativity - Responsibility - Care - Continuous Improvement - Connection - Individuality."
 	},
 	"contactMeView": {
 		"test": "Do Van Hai",
-		"sendContact": "Send contact"
+		"sendContact": "Send contact",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"phone": "Phone",
+		"note": "Message"
+	},
+	"home": {
+		"submitReceived": "Register for Consulting Information",
+		"text1": "Leave your information, we will contact you immediately",
+		"sent": "Send"
 	},
 	"menu": {
 		"home": "Home",

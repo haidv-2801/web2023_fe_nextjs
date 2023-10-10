@@ -6,3 +6,28 @@
 	object-fit: contain;
 	width: 100%;
 }
+
+.partnerAndCustomerOverlay {
+	background-image: url('../../../../../public/assets/images/partneroverlay.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: contain;
+	color: #2f5097;
+	height: 100%;
+	left: 0;
+	opacity: 0.1;
+	position: absolute;
+	top: 0;
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+	width: 100%;
+}
+
+.partnerAndCustomerPartner {
+	background-blend-mode: color-burn;
+	background-image: url('../../../../../public/assets/images/partneroverlay.png');
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	flex: 1 1;
+	max-width: 40%;
+}

@@ -9,6 +9,14 @@ type Props = {
 	};
 };
 
+export async function generateMetadata({ params }: Props) {
+	const { locale } = params;
+
+	return {
+		title: locale == 'vi' ? 'Liên hệ' : 'Contact',
+	};
+}
+
 export default async function ClientPage({ params: { locale } }: Props) {
 	const data = await fetchContactMe(locale as LocaleCode);
 	return (
